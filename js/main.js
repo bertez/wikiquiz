@@ -123,8 +123,6 @@ async function start() {
       `https://wikimedia.org/api/rest_v1/metrics/pageviews/top/es.wikipedia.org/all-access/${year}/${month}/${day}`
     );
 
-    console.log(items);
-
     const validArticles = items[0].articles.filter(
       (item) => !item.article.includes(":")
     );
