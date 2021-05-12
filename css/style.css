@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+p.counter {
+  margin: 2rem 0;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+main#quiz p {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+}
+
+main#quiz button {
+  background: black;
+  color: white;
+  border: 0;
+  padding: 0.5rem 1rem;
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
