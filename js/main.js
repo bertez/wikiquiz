@@ -113,16 +113,20 @@ function writeQuestion(question) {
 
 async function start() {
   try {
+    // Guardamos la fecha de ayer en una variable
     const yesterday = new Date(Date.now() - 86400000);
 
+    // Sacamos año, mes y día (si el mes y día son de una sola cifra le añadimos un 0 antes)
     const year = yesterday.getFullYear();
     const month = String(yesterday.getMonth() + 1).padStart(2, "0");
     const day = String(yesterday.getDate()).padStart(2, "0");
 
+    // Extraemos de la API de la wikipedia los artículos más vistos en la wikipedia española ayer
     const { items } = await getData(
       `https://wikimedia.org/api/rest_v1/metrics/pageviews/top/es.wikipedia.org/all-access/${year}/${month}/${day}`
     );
 
+    // Descartamos los artítulos que tienen ":" en el título (Wikipedia:Portada, por ejemplo)
     const validArticles = items[0].articles.filter(
       (item) => !item.article.includes(":")
     );
