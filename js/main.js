@@ -135,7 +135,6 @@ async function start() {
 
     generateQuestion();
   } catch (error) {
-    console.error(error);
     document.body.innerHTML = `
     <main class="notice">
     <h1>Este juego no funciona si usas un bloqueador de anuncios por un falso positivo</h1>
