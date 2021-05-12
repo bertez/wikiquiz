@@ -1,12 +1,12 @@
 import { shuffleArray, randomItem, getData } from "/js/helpers.js";
 
+const quiz = document.querySelector("#quiz");
+const points = document.querySelector("#points");
+
 const STATE = {
   points: 0,
   articles: [],
 };
-
-const quiz = document.querySelector("#quiz");
-const points = document.querySelector("#points");
 
 const HIDETEXT = "██████████";
 
@@ -136,6 +136,14 @@ async function start() {
     generateQuestion();
   } catch (error) {
     console.error(error);
+    document.body.innerHTML = `
+    <main class="notice">
+    <h1>Este juego no funciona si usas un bloqueador de anuncios por un falso positivo</h1>
+    <p>Para funcionar hace una petición a una URL de la API de la wikipedia que contiene la palabra <em>pageviews</em> y por eso el bloqueador de anuncios la cancela 😔</p>
+    <p>Mira el código fuente aquí o <a href="https://github.com/bertez/wikiquiz">en github</a> si tienes dudas.</p>
+    <p>Desactiva el bloqueador de anuncios en esta página y recarga si quieres jugar.</p>
+    </main>
+    `;
   }
 }
 
